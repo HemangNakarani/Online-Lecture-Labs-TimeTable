@@ -1,0 +1,25 @@
+
+.input{
+    margin: 0.5em ;
+    width: 100%;
+}
+
+.card{
+    padding-right: 13em;
+    padding-left: 13em;
+}
+
+
+@media only screen and (max-width: 1028px) {
+    .card {
+        padding-right: 8em;
+        padding-left: 8em;
+    }
+  }
+
+@media only screen and (max-width: 973px) {
+    .card {
+        padding-right: 0em;
+        padding-left: 0em;
+    }
+  }
