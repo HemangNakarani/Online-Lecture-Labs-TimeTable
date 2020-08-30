@@ -53,6 +53,7 @@ function AllThings(){
                             cname={lecture.COURSE_NAME} 
                             link1={lecture.LINK1}
                             link2={lecture.LINK2}
+                            link3={lecture.LINK3}
                             starttime={lecture.START_TIME}
                             endtime={lecture.END_TIME}
                             day={lecture.DAY}
@@ -78,7 +79,9 @@ function AllThings(){
                                     uuid= {lab.UUID}
                                     ccode={lab.COURSE_CODE}
                                     cname={lab.COURSE_NAME} 
-                                    link={lab.LINK}
+                                    link1={lab.LINK1}
+                                    link2={lab.LINK2}
+                                    link3={lab.LINK3}
                                     starttime={lab.START_TIME}
                                     endtime={lab.END_TIME}
                                     day={lab.DAY}

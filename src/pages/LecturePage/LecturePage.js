@@ -39,6 +39,7 @@ function LecturePage(){
                             cname={lecture.COURSE_NAME} 
                             link1={lecture.LINK1}
                             link2={lecture.LINK2}
+                            link3={lecture.LINK3}
                             starttime={lecture.START_TIME}
                             endtime={lecture.END_TIME}
                             day={lecture.DAY}

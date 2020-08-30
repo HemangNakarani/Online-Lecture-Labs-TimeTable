@@ -23,7 +23,7 @@ function LabPage(){
 
     return(
         <>
-        <h1 style={{fontSize:"24px"}}>● Labs</h1>
+        <h1 style={{fontSize:"24px"}}>● Lectures</h1>
         <Divider  orientation="left"/>
         <Row justify="space-between">
             {
@@ -38,7 +38,9 @@ function LabPage(){
                                     uuid= {lab.UUID}
                                     ccode={lab.COURSE_CODE}
                                     cname={lab.COURSE_NAME} 
-                                    link={lab.LINK}
+                                    link1={lab.LINK1}
+                                    link2={lab.LINK2}
+                                    link3={lab.LINK3}
                                     starttime={lab.START_TIME}
                                     endtime={lab.END_TIME}
                                     day={lab.DAY}

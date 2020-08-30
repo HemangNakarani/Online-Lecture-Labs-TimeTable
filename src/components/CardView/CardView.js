@@ -1,14 +1,35 @@
 import React from 'react';
 import './style.css';
 import 'antd/dist/antd.css';
-import { Card, Typography, Button } from 'antd';
+import { Card, Typography, Button,Menu,Dropdown} from 'antd';
 import {Link} from '@reach/router';
-import { EditOutlined,LinkOutlined, DeleteOutlined } from '@ant-design/icons';
+import { EditOutlined,LinkOutlined, DeleteOutlined ,DownOutlined} from '@ant-design/icons';
 import ListEdit from '../ListEdit';
 
-function CardView({list,setList,uuid,ccode,cname,link1,link2,starttime,endtime,day,type}){
+function CardView({list,setList,uuid,ccode,cname,link1,link2,link3,starttime,endtime,day,type}){
 
     const {Title,Text} = Typography;
+
+
+    const menu = (
+        <Menu>
+            <Menu.Item key="1" icon={<LinkOutlined />}>
+                <a href={link1} style={{padding:"24px",margin:"16px"}} rel="noopener noreferrer" target="_blank">
+                    Link 1 
+                </a>
+            </Menu.Item>
+            <Menu.Item key="2" icon={<LinkOutlined />}>
+                <a  href={link2} style={{padding:"24px",margin:"16px"}} rel="noopener noreferrer" target="_blank">
+                        Link 2 
+                </a>
+            </Menu.Item>
+            <Menu.Item key="3" icon={<LinkOutlined />}>
+                <a  href={link3} style={{padding:"24px",margin:"16px"}} rel="noopener noreferrer" target="_blank">
+                        Link 3 
+                </a>
+            </Menu.Item>
+        </Menu>
+      );
 
     const object = {
         UUID: uuid,
@@ -16,6 +37,7 @@ function CardView({list,setList,uuid,ccode,cname,link1,link2,starttime,endtime,d
         COURSE_NAME: cname,
         LINK1:link1,
         LINK2:link2,
+        LINK3:link3,
         START_TIME:starttime,
         END_TIME:endtime,
         DAY:day,
@@ -44,10 +66,13 @@ function CardView({list,setList,uuid,ccode,cname,link1,link2,starttime,endtime,d
         <Card
             style={{backgroundColor:"#ffffc9",margin:"12px"}}
             actions={[
-            <Button className="button" href={link1} target="_blanck"><LinkOutlined key="link1" />1</Button>,
-            <Button className="button" href={link2} target="_blanck"><LinkOutlined key="link2" />2</Button>,
-            <Link to="/edit"><Button className="button" onClick={()=>{localStorage.setItem("temp",JSON.stringify(object))}}><EditOutlined key="edit" /></Button></Link>,
-            <Button className="button" target="_blanck" onClick={()=>{handleDelete()}}><DeleteOutlined key="delete"/></Button>,
+                <Dropdown overlay={menu}>
+                    <Button className="button">
+                        Links <DownOutlined />
+                    </Button>
+                </Dropdown>,
+                <Link to="/edit"><Button className="button" onClick={()=>{localStorage.setItem("temp",JSON.stringify(object))}}><EditOutlined key="edit" /></Button></Link>,
+                <Button className="button" target="_blanck" onClick={()=>{handleDelete()}}><DeleteOutlined key="delete"/></Button>,
             ]}
         >
         

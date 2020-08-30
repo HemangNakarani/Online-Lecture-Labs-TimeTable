@@ -3,11 +3,12 @@ import './App.css';
 import 'antd/dist/antd.css';
 import { Router,Link } from '@reach/router';
 import { Layout, Menu, Button } from 'antd';
-import { UserOutlined, VideoCameraOutlined, PlusOutlined, GithubFilled,AppstoreAddOutlined } from '@ant-design/icons';
+import { UserOutlined, VideoCameraOutlined, PlusOutlined, GithubFilled,AppstoreAddOutlined ,SwapOutlined} from '@ant-design/icons';
 import LabPage from './pages/LabPage/LabPage';
 import AddPage from './pages/AddPage/AddPage';
 import LecturePage from './pages/LecturePage/LecturePage';
 import AllThings from './pages/AllThings/AllThings';
+import ImpoExpo from './pages/ImpoExpo/ImpoExpo';
 
 function App() {
 
@@ -34,7 +35,10 @@ function App() {
             <Menu.Item key="3" icon={<AppstoreAddOutlined />}>
               <Link to="/all">All Lectures/Labs</Link>
             </Menu.Item>
-            <Menu.Item key="4" icon={<GithubFilled />}>
+            <Menu.Item key="4" icon={<SwapOutlined />}>
+              <Link to="/ie">Import/Export</Link>
+            </Menu.Item>
+            <Menu.Item key="5" icon={<GithubFilled />}>
               <a href="https://github.com/HemangNakarani/Online-Lecture-Labs-TimeTable" rel="noopener noreferrer" target="_blank">Contribute</a>
             </Menu.Item>
           </Menu>
@@ -52,6 +56,7 @@ function App() {
                     <LabPage path="/labs" />
                     <AddPage path="/edit" />
                     <AddPage path="/add" />
+                    <ImpoExpo path="/ie" />
                 </Router>
               </div>
            </Content>

@@ -19,6 +19,7 @@ function AddCard(){
     const [courseCode,setCourseCode] = useState("");
     const [link1,setLink1] = useState("");
     const [link2,setLink2] = useState("");
+    const [link3,setLink3] = useState("");
     const [startTime,setStartTime] = useState("8:30 am");
     const [endTime,setEndTime] = useState("9:45 am");
     const [type,setType] = useState("");
@@ -35,6 +36,7 @@ function AddCard(){
           setCourseCode(object.COURSE_CODE);
           setLink1(object.LINK1);
           setLink2(object.LINK2);
+          setLink3(object.LINK3);
           setStartTime(object.START_TIME);
           setEndTime(object.END_TIME);
           setDay(object.DAY);
@@ -65,7 +67,7 @@ function AddCard(){
           return false;
         }
 
-        if(link1==="")
+        if(link1==="" && link2==="" && link3==="")
         {
           message.error("Enter Atleast one Link");
           return false;
@@ -136,6 +138,7 @@ function AddCard(){
         <Input className="input" size="large" placeholder="Course Code" prefix={<NumberOutlined/>} value={courseCode} onChange={(e)=>setCourseCode(e.target.value)} />
         <Input className="input" size="large" placeholder="Lecture/Lab Link 1" prefix={<VideoCameraOutlined />} value={link1} onChange={(e)=>setLink1(e.target.value)} />
         <Input className="input" size="large" placeholder="Lecture/Lab Link 2" prefix={<VideoCameraOutlined />} value={link2} onChange={(e)=>setLink2(e.target.value)} />
+        <Input className="input" size="large" placeholder="Lecture/Lab Link 3" prefix={<VideoCameraOutlined />} value={link3} onChange={(e)=>setLink3(e.target.value)} />
 
         <RangePicker format="h:mm a" className="input"
             value={
@@ -169,7 +172,7 @@ function AddCard(){
             onClick={()=>{
                 if(ValidateFields()===true)  
                 {
-                  ListEdit.addLecture(uuid,courseCode,courseName,link1,link2,startTime,endTime,day,type)
+                  ListEdit.addLecture(uuid,courseCode,courseName,link1,link2,link3,startTime,endTime,day,type)
                   navigate('/all');
                 }
                 else {}

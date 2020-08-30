@@ -9,7 +9,7 @@ function getToday()
 
 const ListEdit = {
 
-    addLecture: async function(uuid,course_code,course_name,link1,link2,starttime,endtime,day,type) {
+    addLecture: async function(uuid,course_code,course_name,link1,link2,link3,starttime,endtime,day,type) {
 
         var list = await localStorage.getItem(type);
         if(list===null)
@@ -44,6 +44,7 @@ const ListEdit = {
              COURSE_NAME: course_name,
              LINK1:link1,
              LINK2:link2,
+             LINK3:link3,
              START_TIME:starttime,
              END_TIME:endtime,
              DAY:day,
