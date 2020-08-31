@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import './ImpoExpo.css';
 import 'antd/dist/antd.css';
-import {Divider,Card, Typography,Input,Button,Alert} from 'antd';
+import {Divider,Card, Typography,Input,Button,Alert,Popconfirm,message } from 'antd';
 import {navigate} from '@reach/router';
 import { UserOutlined} from '@ant-design/icons';
 
@@ -31,6 +31,25 @@ function ImpoExpo(){
         foo();
     },[])
 
+    function ValidateLabData()
+    {
+        if(labdata==="")
+        {
+          message.error("Enter Lab Data");
+          return false;
+        }
+        return true;
+    }
+    function ValidateLecData()
+    {
+        if(lecturedata==="")
+        {
+          message.error("Enter Lecture Data");
+          return false;
+        }
+        return true;
+    }
+
     return(
         <>
             <Card
@@ -59,29 +78,42 @@ function ImpoExpo(){
             <h3 className="input" style={{fontSize:"24px"}}>Import Data</h3>
             <Divider orientation="left"/>
             <Input className="input" size="large" placeholder="Paste Here LECTURE data of your friend" prefix={<UserOutlined />} onChange={(e)=>setLectureData(e.target.value)} />
-            <Button 
-                type="primary" 
-                className="input" 
-                style={{backgroundColor:"#141414", height:"40px"}} 
-                onClick={()=>{
-                    console.log(lecturedata)
-                    setLocalstorage("lectures",lecturedata);
-                    navigate("/all");
+            <Popconfirm 
+                title="Are you sure?" okText="Yes" cancelText="No" 
+                onConfirm={()=>{
+                    if(ValidateLecData()===true){
+                        console.log(lecturedata)
+                        setLocalstorage("lectures",lecturedata);
+                        navigate("/all");
+                    }
                 }}>
-                Set Lecture Data
-            </Button>
+                <Button 
+                    type="primary" 
+                    className="input" 
+                    style={{backgroundColor:"#141414", height:"40px"}} 
+                    >
+                    Set Lecture Data
+                </Button>
+            </Popconfirm>
             <Input className="input" size="large" placeholder="Paste Here LAB data of your friend" prefix={<UserOutlined />} onChange={(e)=>setLabData(e.target.value)} />
+            <Popconfirm 
+                title="Are you sure?" okText="Yes" cancelText="No" 
+                onConfirm={()=>{
+                    if(ValidateLabData()===true){
+                        console.log(labdata)
+                        setLocalstorage("labs",labdata);
+                        navigate("/all");
+                    }
+                }}>
             <Button 
                 type="primary" 
                 className="input" 
                 style={{backgroundColor:"#141414", height:"40px"}} 
-                onClick={()=>{
-                    console.log(labdata)
-                    setLocalstorage("labs",labdata);
-                    navigate("/all");
-                }}>
+                onClick={()=>{}}
+                >
                 Set Lab Data
             </Button>
+            </Popconfirm>
         </Card>
         </>
     );
