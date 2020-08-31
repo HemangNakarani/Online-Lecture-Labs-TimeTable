@@ -64,7 +64,7 @@ function AllThings(){
                <Link to="/add"><div style={{textAlign:"center",fontSize:"32px", color:"grey",margin:"16px"}}>Tap Here to Add Lectures</div></Link> 
             }
         </Row>
-        <h1 style={{fontSize:"24px"}}>● LABS</h1>
+        <h1 style={{fontSize:"24px"}}>● Labs</h1>
         <Divider  orientation="left"/>
         <Row justify="space-between">
             {

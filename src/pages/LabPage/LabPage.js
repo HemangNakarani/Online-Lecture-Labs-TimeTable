@@ -23,7 +23,7 @@ function LabPage(){
 
     return(
         <>
-        <h1 style={{fontSize:"24px"}}>● Lectures</h1>
+        <h1 style={{fontSize:"24px"}}>● Labs</h1>
         <Divider  orientation="left"/>
         <Row justify="space-between">
             {
