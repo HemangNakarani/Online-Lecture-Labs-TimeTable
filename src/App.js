@@ -51,7 +51,7 @@ function App() {
         </Sider>
         <Layout className="site-layout">
         <Header className="site-layout-sub-header-background" style={{ padding: 0 , width:"100%" ,display:"flex" ,justifyContent:"space-between"}}>
-          <h6 style={{fontSize:"24px", color:"#000", marginLeft:"24px",color:"white"}}><b>Timetable</b><span role="img" aria-label="books">📚</span></h6>
+          <h6 style={{fontSize:"24px", color:"#000", marginLeft:"24px"}}><b>Timetable</b><span role="img" aria-label="books">📚</span></h6>
           <Link to="/add"><Button style={{marginRight:"24px", marginTop:"16px"}} type="primary" shape="circle" icon={<PlusOutlined />} /></Link>
         </Header>
             <Content style={{ margin: '24px 16px 0', height:"75vh",overflowY:"scroll", alignContent:"center"}}>
