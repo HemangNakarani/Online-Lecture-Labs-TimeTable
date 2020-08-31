@@ -7,6 +7,8 @@
 
 - If you are lazy and if your friend has set all links, you and your friend have same timings and links then you can ask him to give you a copy of his/her data. Then simply paste that data in your app. 
 
+![Screenshots](https://github.com/HemangNakarani/Online-Lecture-Labs-TimeTable/blob/master/src/display.png)
+
 ## Development
 
 - Fork the repository, Clone it in your machine.
