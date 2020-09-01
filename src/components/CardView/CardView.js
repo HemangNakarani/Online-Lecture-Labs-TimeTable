@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 import 'antd/dist/antd.css';
-import { Card, Typography, Button,Menu,Dropdown} from 'antd';
+import { Card, Typography, Button,Menu,Dropdown,Popconfirm} from 'antd';
 import {Link} from '@reach/router';
 import { EditOutlined,LinkOutlined, DeleteOutlined ,DownOutlined} from '@ant-design/icons';
 import ListEdit from '../ListEdit';
@@ -72,7 +72,9 @@ function CardView({list,setList,uuid,ccode,cname,link1,link2,link3,starttime,end
                     </Button>
                 </Dropdown>,
                 <Link to="/edit"><Button className="button" onClick={()=>{localStorage.setItem("temp",JSON.stringify(object))}}><EditOutlined key="edit" /></Button></Link>,
-                <Button className="button" target="_blanck" onClick={()=>{handleDelete()}}><DeleteOutlined key="delete"/></Button>,
+                <Popconfirm title="Are you sure?" okText="Yes" cancelText="No" onConfirm={()=>{handleDelete()}}>
+                    <Button className="button" target="_blank"><DeleteOutlined key="delete"/></Button>
+                </Popconfirm>,
             ]}
         >
         
