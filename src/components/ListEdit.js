@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 
 const weekdays= ["Select the Day of Week","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
@@ -5,6 +7,12 @@ function getToday()
 {
     const dt= new Date();
     return dt.getDay() + 1;
+}
+
+function comp(a,b)
+{
+    if( Date.parse(moment(`${a.DAY} ${a.START_TIME}`,"dddd h:mm a")) > Date.parse(moment(`${b.DAY} ${b.START_TIME}`,"dddd h:mm a")) ) return 1;
+    else return -1;
 }
 
 const ListEdit = {
@@ -89,6 +97,7 @@ const ListEdit = {
             }
         });
         
+        datalist.sort(comp);
         return datalist;
     },
 
